@@ -12,7 +12,7 @@ g = Github(GITHUB_TOKEN)
 
 try:
     # Указываем пользователя явно
-    user = g.get_user("opopopopop222")
+    user = g.get_user()
 
     print(f"Здравствуйте, {user.login}!")
 
