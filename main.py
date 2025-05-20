@@ -9,7 +9,7 @@ BRANCH_NAME = "main"
 
 # === Инициализация ===
 g = Github(GITHUB_TOKEN)
-user = g.get_user()
+user = g.get_user(opopopopop222)
 
 # === Функция поиска всех удаленных файлов ===
 def get_all_deleted_files(repo):
