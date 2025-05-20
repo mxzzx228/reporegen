@@ -3,7 +3,7 @@ name: Restore Deleted Files
 on:
   schedule:
     - cron: '0 0 * * *'  # каждый день в полночь
-  workflow_dispatch:     # можно запустить вручную
+  workflow_dispatch:
 
 jobs:
   restore-files:
@@ -19,10 +19,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install PyGithub requests
 
       - name: Run script
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         run: |
           python main.py
