@@ -4,7 +4,7 @@ import base64
 import requests
 
 # === Настройки ===
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # Получаем из переменной окружения
+GITHUB_TOKEN = os.getenv("MY_GITHUB_TOKEN")  # Получаем из переменной окружения
 BRANCH_NAME = "main"
 
 # === Инициализация ===
