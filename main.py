@@ -3,13 +3,26 @@ from github import Github
 import base64
 import requests
 
-# === Настройки ===
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # Получаем из переменной окружения
-BRANCH_NAME = "main"
+# Проверка токена
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+if not GITHUB_TOKEN:
+    print("❌ Ошибка: GITHUB_TOKEN не найден!")
+    exit(1)
+else:
+    print(f"✅ Токен загружен. Длина: {len(GITHUB_TOKEN)}")
 
-# === Инициализация ===
+# Авторизация
 g = Github(GITHUB_TOKEN)
-user = g.get_user("opopopopop222")
+
+try:
+    user = g.get_user("opopopopop222")
+    print(f"Здравствуйте, {user.login}!")
+
+    for repo in user.get_repos():
+        print(repo.full_name)
+
+except GithubException as e:
+    print(f"❌ GitHub вернул ошибку: {e.status} — {e.data}")
 
 # === Функция поиска всех удаленных файлов ===
 def get_all_deleted_files(repo):
