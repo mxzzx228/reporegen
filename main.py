@@ -4,8 +4,6 @@ import base64
 import requests
 from github import Github, GithubException
 
-from github import Github, GithubException
-
 # Прямо в коде указываем токен
 GITHUB_TOKEN = "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"
 
