@@ -4,7 +4,7 @@ import base64
 import requests
 
 # === Настройки ===
-GITHUB_TOKEN = "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" # Получаем из переменной окружения
+GITHUB_TOKEN = "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" # Получаем из переменной окружения
 BRANCH_NAME = "main"
 
 # === Инициализация ===
