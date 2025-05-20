@@ -24,3 +24,8 @@ jobs:
       - name: Run script
         run: |
           python main.py
+      - name: Show environment
+        run: |
+          echo "GITHUB_TOKEN length: ${#GITHUB_TOKEN}"
+          echo "First 10 chars: ${GITHUB_TOKEN:0:10}"
+
