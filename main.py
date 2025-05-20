@@ -2,14 +2,33 @@ import os
 from github import Github
 import base64
 import requests
+from github import Github, GithubException
 
-# === Настройки ===
-GITHUB_TOKEN = "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" # Получаем из переменной окружения
-BRANCH_NAME = "main"
+# Прямо в коде указываем токен
+GITHUB_TOKEN = "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"
 
-# === Инициализация ===
+# Авторизация
 g = Github(GITHUB_TOKEN)
-user = g.get_user("opopopopop222")
+
+try:
+    # Указываем пользователя явно
+    user = g.get_user("opopopopop222")
+
+    print(f"Здравствуйте, {user.login}!")
+
+    # Получаем список репозиториев
+    repos = user.get_repos()
+
+    if not repos:
+        print("❌ Репозитории не найдены или у вас нет к ним доступа.")
+
+    for repo in repos:
+        print(repo.full_name)
+
+except GithubException as e:
+    print(f"❌ GitHub вернул ошибку: {e.status} — {e.data}")
+except Exception as e:
+    print(f"❌ Ошибка: {e}")
 
 # === Функция поиска всех удаленных файлов ===
 def get_all_deleted_files(repo):
